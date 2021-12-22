@@ -111,6 +111,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'geometry',
           to: '/geometry'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'materials',
+          to: '/materials'
         }
       ],
       miniVariant: false,
