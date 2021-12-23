@@ -1,8 +1,18 @@
 <template>
   <v-col>
-    <canvas class="window"></canvas>
-    <div id="gui_container"></div>
+    <v-col class="justify-center">
+      <canvas class="window"></canvas>
+      <div id="gui_container"></div>
+    </v-col>
+    <v-col>
+      <v-card>
+        <v-container>
+          <v-card-title>hello world </v-card-title>
+        </v-container>
+      </v-card>
+    </v-col>
   </v-col>
+
 </template>
 
 <script>
@@ -17,8 +27,8 @@ export default {
   },
   mounted () {
     let size ={
-      width: window.innerWidth *0.5,
-      height: window.innerHeight *0.5
+      width: window.innerWidth * 0.6 ,
+      height: window.innerHeight * 0.6
     }
     const canvas = document.querySelector('.window')
     var gui = new dat.GUI({ autoPlace: false });
@@ -35,10 +45,13 @@ export default {
       new THREE.SphereGeometry(0.5, 32, 16),
       new THREE.MeshBasicMaterial({color:"pink",wireframe:true})
     )
+    sphere.visible=false
     scene.add(camera,sphere)
 
-    const sphere_group=gui.addFolder("sphere")
-    sphere_group.add(sphere.material,'wireframe').name("wireframe 网格")
+    const sphere_ui_group=gui.addFolder("sphere")
+    sphere_ui_group.add(sphere,'visible').name("是否显示")
+    sphere_ui_group.add(sphere.material,'wireframe').name("wireframe 网格")
+
 
 
 
