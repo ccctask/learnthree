@@ -9,7 +9,7 @@
       <v-row>
         <v-container class="ma-2">
           <div id="gui_container"></div>
-          <div id="lights_div"></div>
+
         </v-container>
         <v-container>
           <v-card-title>
@@ -36,7 +36,7 @@ import {  OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 
 export default {
-  name: "materials",
+  name: "lights",
   data () {
     return{}
   },
@@ -56,6 +56,16 @@ export default {
     camera.position.set(1,1,3);
 
 
+    // 灯光
+    const AmbientLight=new THREE.AmbientLight(0xffffff,0.5)
+    const pointlight=new THREE.PointLight(0xffffff,0.5)
+
+    const pointlightHelper = new THREE.PointLightHelper(pointlight)
+    // pointlight.position.x=-5
+    pointlight.position.y=2
+    // pointlight.position.z=1
+    scene.add(AmbientLight,pointlight,pointlightHelper)
+
     const cube_BasicMaterial =new THREE.Mesh(
       new THREE.BoxGeometry(1,1,1),
       new THREE.MeshBasicMaterial({color:"pink",wireframe:true})
@@ -68,6 +78,7 @@ export default {
     sphere_ui_group.add(cube_BasicMaterial,'visible').name("是否显示")
     sphere_ui_group.add(cube_BasicMaterial.material,'wireframe').name("wireframe 网格")
     sphere_ui_group.add(cube_BasicMaterial.material,'transparent').name("transparent 透明开关")
+
     sphere_ui_group.add(cube_BasicMaterial.material,'opacity',-1,1,0.01).name("transparent 不透明度")
 
 

@@ -114,6 +114,11 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'lights',
+          to: '/lights'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'materials',
           to: '/materials'
         }
