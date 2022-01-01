@@ -126,7 +126,12 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'materials',
           to: '/materials'
-        }
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'particles',
+          to: '/particles'
+        },
       ],
       miniVariant: false,
       right: true,
