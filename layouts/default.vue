@@ -132,6 +132,16 @@ export default {
           title: 'particles',
           to: '/particles'
         },
+        {
+          icon: 'mdi-chart-bubble',
+          title: '射线检测',
+          to: '/raycaster'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: '上传演示',
+          to: '/dome/upload3d'
+        },
       ],
       miniVariant: false,
       right: true,

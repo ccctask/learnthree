@@ -33,6 +33,7 @@
 import * as dat from "dat.gui";
 import * as THREE from "three";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader'
 
 export default {
   name: "texture",
@@ -101,6 +102,23 @@ export default {
     )
     door.castShadow=true
 
+
+    //加载 STL
+    const loader = new STLLoader()
+    const material=  new THREE.MeshBasicMaterial({color:"yellow"})
+    loader.load(
+      'models/example.stl',
+      function (geometry) {
+        const mesh = new THREE.Mesh(geometry, material)
+        scene.add(mesh)
+      },
+      (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
 
     scene.fog=fog
     scene.add(AmbientLight,pointLight,pointLightHelper,plan,door)
